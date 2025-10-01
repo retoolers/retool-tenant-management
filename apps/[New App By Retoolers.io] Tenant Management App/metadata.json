@@ -1,0 +1,12 @@
+{
+  "toolscriptVersion": "1.0.0",
+  "version": "43.0.9",
+  "pageUuid": "24cc0172-9e88-11f0-97f2-17e55df67b78",
+  "appTemplate": {
+    "appThemeId": 162026,
+    "rootScreen": "page1",
+    "appThemeName": "AIRFusion",
+    "version": "3.281.0",
+    "experimentalDataTabEnabled": true
+  }
+}
