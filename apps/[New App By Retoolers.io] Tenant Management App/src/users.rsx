@@ -42,12 +42,28 @@
   <Folder id="POST">
     <RESTQuery
       id="api_post_invite_user"
+      body={
+        '[{"key":"fullNameOwner","value":"{{ name_input.value }}"},{"key":"email","value":"{{ email_input.value }}"},{"key":"role","value":"{{ role_select.value }}"}]'
+      }
+      bodyType="json"
+      isMultiplayerEdited={false}
       notificationDuration={4.5}
+      query="userprofile/invite"
       resourceDisplayName="AirFusion Tenant Configuration API"
       resourceName="1fb0010c-aa81-44d6-8cd9-ba529aa9a123"
       runWhenModelUpdates={false}
-      showSuccessToaster={false}
-    />
+      type="POST"
+    >
+      <Event
+        event="success"
+        method="setHidden"
+        params={{}}
+        pluginId="modal_add_user"
+        type="widget"
+        waitMs="0"
+        waitType="debounce"
+      />
+    </RESTQuery>
     <RESTQuery
       id="api_add_member_to_team"
       body={
@@ -101,9 +117,25 @@
       />
     </RESTQuery>
   </Folder>
+  <Folder id="PATCH">
+    <RESTQuery
+      id="api_update_user_profile"
+      bodyType="json"
+      notificationDuration={4.5}
+      resourceDisplayName="AirFusion Tenant Configuration API"
+      resourceName="1fb0010c-aa81-44d6-8cd9-ba529aa9a123"
+      runWhenModelUpdates={false}
+      showSuccessToaster={false}
+      type="PATCH"
+    />
+  </Folder>
   <Function
     id="_userdata"
     funcBody={include("../lib/_userdata.js", "string")}
+  />
+  <Function
+    id="transformer2"
+    funcBody={include("../lib/transformer2.js", "string")}
   />
   <Include src="./modal_add_user.rsx" />
   <Include src="./modal_add_user_to_team.rsx" />
@@ -311,7 +343,7 @@
         label="Status"
         placeholder="Enter value"
         position="center"
-        size={100}
+        size={91}
         summaryAggregationMode="none"
       />
       <Column

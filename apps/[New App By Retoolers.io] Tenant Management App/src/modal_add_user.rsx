@@ -80,9 +80,9 @@
           placeholder="Select an option"
           showSelectionIndicator={true}
         >
-          <Option id="00030" value="Option 1" />
-          <Option id="00031" value="Option 2" />
-          <Option id="00032" value="Option 3" />
+          <Option id="00030" label="Viewer" value="viewer" />
+          <Option id="00031" label="Editor" value="editor" />
+          <Option id="00032" label="Admin" value="admin" />
         </Select>
         <Multiselect
           id="team_multiselect"

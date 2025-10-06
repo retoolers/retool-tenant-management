@@ -61,13 +61,15 @@
       <Body>
         <Select
           id="select3"
-          data="{{ api_get_roles.data }}"
+          data="{{ api_get_roles.data.value }}"
           emptyMessage="No options"
           label="New Role"
           labelPosition="top"
+          labels="{{ item.name }}"
           overlayMaxHeight={375}
           placeholder="Select an option"
           showSelectionIndicator={true}
+          values="{{ item.id }}"
         />
       </Body>
       <Footer>

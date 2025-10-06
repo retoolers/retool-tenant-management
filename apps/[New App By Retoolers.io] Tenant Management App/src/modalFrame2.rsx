@@ -103,6 +103,15 @@
           text="Save Changes"
         />
       </Footer>
+      <Event
+        event="submit"
+        method="trigger"
+        params={{}}
+        pluginId="api_update_user_profile"
+        type="datasource"
+        waitMs="0"
+        waitType="debounce"
+      />
     </Form>
   </Body>
 </ModalFrame>

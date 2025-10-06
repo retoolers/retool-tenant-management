@@ -12,7 +12,7 @@
           "array": []
         },
         "users": {
-          "array": ["POST", "GET"]
+          "array": ["POST", "GET", "PATCH"]
         }
       }
     },
