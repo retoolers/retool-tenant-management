@@ -1,5 +1,5 @@
 <Screen
-  id="page1"
+  id="home"
   _customShortcuts={[]}
   _hashParams={[]}
   _searchParams={[]}

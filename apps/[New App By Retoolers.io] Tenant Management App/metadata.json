@@ -5,7 +5,18 @@
   "appTemplate": {
     "appMaxWidth": "100%",
     "appThemeId": 162026,
-    "rootScreen": "page1",
+    "appThemeModeId": "625f9e35",
+    "pageCodeFolders": {
+      "object": {
+        "home": {
+          "array": []
+        },
+        "users": {
+          "array": ["POST", "GET"]
+        }
+      }
+    },
+    "rootScreen": "home",
     "appThemeName": "AIRFusion",
     "version": "3.283.0",
     "experimentalDataTabEnabled": true
