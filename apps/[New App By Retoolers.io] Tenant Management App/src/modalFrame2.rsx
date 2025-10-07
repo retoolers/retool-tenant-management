@@ -31,6 +31,15 @@
         waitMs="0"
         waitType="debounce"
       />
+      <Event
+        event="click"
+        method="run"
+        params={{ map: { src: "table1.selectRow(currentRow.index)" } }}
+        pluginId=""
+        type="script"
+        waitMs="0"
+        waitType="debounce"
+      />
     </Button>
     <Text
       id="text7"
@@ -75,11 +84,11 @@
           emptyMessage="No options"
           label="Role"
           labelPosition="top"
-          labels=""
+          labels="{{ item.name }}"
           overlayMaxHeight={375}
           placeholder="Select an option"
           showSelectionIndicator={true}
-          values="{{ item. }}"
+          values="{{ item.id }}"
         />
         <Select
           id="select5"

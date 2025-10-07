@@ -8,7 +8,62 @@
   urlSlug={null}
   uuid="9ef32fad-5c57-4acd-bc81-7f61268c9cf8"
 >
+  <Folder id="GET">
+    <RESTQuery
+      id="api_get_user"
+      notificationDuration={4.5}
+      query="userprofile/list"
+      resourceDisplayName="AirFusion Tenant Configuration API"
+      resourceName="1fb0010c-aa81-44d6-8cd9-ba529aa9a123"
+      runWhenModelUpdates={false}
+      runWhenPageLoads={true}
+      showSuccessToaster={false}
+    />
+    <RESTQuery
+      id="api_get_group_list"
+      query="groups/list"
+      resourceDisplayName="AirFusion Tenant Configuration API"
+      resourceName="1fb0010c-aa81-44d6-8cd9-ba529aa9a123"
+      runWhenModelUpdates={false}
+      runWhenPageLoads={true}
+    />
+    <RESTQuery
+      id="api_get_roles"
+      isMultiplayerEdited={false}
+      notificationDuration={4.5}
+      query="roles/list"
+      resourceDisplayName="AirFusion Tenant Configuration API"
+      resourceName="1fb0010c-aa81-44d6-8cd9-ba529aa9a123"
+      runWhenModelUpdates={false}
+      runWhenPageLoads={true}
+      showSuccessToaster={false}
+    />
+  </Folder>
   <Folder id="POST">
+    <RESTQuery
+      id="api_post_invite_user"
+      body={
+        '[{"key":"fullNameOwner","value":"{{ name_input.value }}"},{"key":"email","value":"{{ email_input.value }}"},{"key":"role","value":"{{ role_select.value }}"}]'
+      }
+      bodyType="json"
+      isMultiplayerEdited={false}
+      notificationDuration={4.5}
+      query="userprofile/invite"
+      resourceDisplayName="AirFusion Tenant Configuration API"
+      resourceName="1fb0010c-aa81-44d6-8cd9-ba529aa9a123"
+      runWhenModelUpdates={false}
+      type="POST"
+    >
+      <Event
+        event="success"
+        method="setHidden"
+        params={{}}
+        pluginId="modal_add_user"
+        type="widget"
+        waitMs="0"
+        waitType="debounce"
+      />
+    </RESTQuery>
     <RESTQuery
       id="api_change_role"
       body={
@@ -36,30 +91,6 @@
         params={{}}
         pluginId="api_get_user"
         type="datasource"
-        waitMs="0"
-        waitType="debounce"
-      />
-    </RESTQuery>
-    <RESTQuery
-      id="api_post_invite_user"
-      body={
-        '[{"key":"fullNameOwner","value":"{{ name_input.value }}"},{"key":"email","value":"{{ email_input.value }}"},{"key":"role","value":"{{ role_select.value }}"}]'
-      }
-      bodyType="json"
-      isMultiplayerEdited={false}
-      notificationDuration={4.5}
-      query="userprofile/invite"
-      resourceDisplayName="AirFusion Tenant Configuration API"
-      resourceName="1fb0010c-aa81-44d6-8cd9-ba529aa9a123"
-      runWhenModelUpdates={false}
-      type="POST"
-    >
-      <Event
-        event="success"
-        method="setHidden"
-        params={{}}
-        pluginId="modal_add_user"
-        type="widget"
         waitMs="0"
         waitType="debounce"
       />
@@ -116,37 +147,6 @@
         waitType="debounce"
       />
     </RESTQuery>
-  </Folder>
-  <Folder id="GET">
-    <RESTQuery
-      id="api_get_user"
-      notificationDuration={4.5}
-      query="userprofile/list"
-      resourceDisplayName="AirFusion Tenant Configuration API"
-      resourceName="1fb0010c-aa81-44d6-8cd9-ba529aa9a123"
-      runWhenModelUpdates={false}
-      runWhenPageLoads={true}
-      showSuccessToaster={false}
-    />
-    <RESTQuery
-      id="api_get_group_list"
-      query="groups/list"
-      resourceDisplayName="AirFusion Tenant Configuration API"
-      resourceName="1fb0010c-aa81-44d6-8cd9-ba529aa9a123"
-      runWhenModelUpdates={false}
-      runWhenPageLoads={true}
-    />
-    <RESTQuery
-      id="api_get_roles"
-      isMultiplayerEdited={false}
-      notificationDuration={4.5}
-      query="roles/list"
-      resourceDisplayName="AirFusion Tenant Configuration API"
-      resourceName="1fb0010c-aa81-44d6-8cd9-ba529aa9a123"
-      runWhenModelUpdates={false}
-      runWhenPageLoads={true}
-      showSuccessToaster={false}
-    />
   </Folder>
   <Folder id="PATCH">
     <RESTQuery
@@ -394,31 +394,31 @@
         label="Teams"
         placeholder="Select options"
         position="center"
-        size={191.84375}
+        size={90.84375}
         summaryAggregationMode="none"
       />
       <Column
         id="ea262"
         alignment="left"
-        format="string"
+        format="datetime"
         groupAggregationMode="none"
         key="createdAt"
         label="Created at"
         placeholder="Enter value"
         position="center"
-        size={100}
+        size={162}
         summaryAggregationMode="none"
       />
       <Column
         id="664b8"
         alignment="left"
-        format="string"
+        format="datetime"
         groupAggregationMode="none"
         key="lastActive"
         label="Last active"
         placeholder="Enter value"
         position="center"
-        size={100}
+        size={145}
         summaryAggregationMode="none"
       />
       <Column
@@ -447,6 +447,15 @@
           waitMs={0}
           waitType="debounce"
         />
+        <Event
+          event="clickCell"
+          method="run"
+          params={{ map: { src: "table1.selectRow(currentRow.index)" } }}
+          pluginId=""
+          type="script"
+          waitMs="0"
+          waitType="debounce"
+        />
       </Column>
       <Column
         id="69221"
@@ -462,7 +471,7 @@
         placeholder="Enter value"
         position="center"
         referenceId="changeRole"
-        size={144.703125}
+        size={97.703125}
         summaryAggregationMode="none"
         valueOverride=" "
       >
@@ -472,6 +481,15 @@
           pluginId="modal_change_user_role"
           type="widget"
           waitMs={0}
+          waitType="debounce"
+        />
+        <Event
+          event="clickCell"
+          method="run"
+          params={{ map: { src: "table1.selectRow(currentRow.index)" } }}
+          pluginId=""
+          type="script"
+          waitMs="0"
           waitType="debounce"
         />
       </Column>
@@ -489,10 +507,20 @@
         placeholder="Enter value"
         position="center"
         referenceId="resetPassword"
-        size={104.078125}
+        size={109.078125}
         summaryAggregationMode="none"
         valueOverride=" "
-      />
+      >
+        <Event
+          event="clickCell"
+          method="run"
+          params={{ map: { src: "table1.selectRow(currentRow.index)" } }}
+          pluginId=""
+          type="script"
+          waitMs="0"
+          waitType="debounce"
+        />
+      </Column>
       <Column
         id="16381"
         alignment="center"
@@ -518,6 +546,15 @@
           params={{}}
           pluginId="modal_archive_user"
           type="widget"
+          waitMs="0"
+          waitType="debounce"
+        />
+        <Event
+          event="clickCell"
+          method="run"
+          params={{ map: { src: "table1.selectRow(currentRow.index)" } }}
+          pluginId=""
+          type="script"
           waitMs="0"
           waitType="debounce"
         />
