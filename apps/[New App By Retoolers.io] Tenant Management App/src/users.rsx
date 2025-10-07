@@ -277,7 +277,26 @@
       iconBefore="line/interface-login-key"
       styleVariant="outline"
       text="Reset password"
-    />
+    >
+      <Event
+        event="click"
+        method="showNotification"
+        params={{
+          map: {
+            options: {
+              notificationType: "info",
+              title: "Password reset emails sent",
+              description:
+                "Reset emails sent to {{ table1.selectedRows.length }} user(s)",
+            },
+          },
+        }}
+        pluginId=""
+        type="util"
+        waitMs="0"
+        waitType="debounce"
+      />
+    </Button>
     <TextInput
       id="textInput1"
       iconBefore="line/interface-search"
@@ -324,7 +343,7 @@
         label="User"
         placeholder="Enter value"
         position="center"
-        size={81.203125}
+        size={96.203125}
         summaryAggregationMode="none"
       />
       <Column
@@ -381,7 +400,7 @@
         label="Status"
         placeholder="Enter value"
         position="center"
-        size={71.875}
+        size={78.875}
         summaryAggregationMode="none"
       />
       <Column
@@ -394,7 +413,7 @@
         label="Teams"
         placeholder="Select options"
         position="center"
-        size={90.84375}
+        size={108.84375}
         summaryAggregationMode="none"
       />
       <Column
@@ -471,7 +490,7 @@
         placeholder="Enter value"
         position="center"
         referenceId="changeRole"
-        size={97.703125}
+        size={109.703125}
         summaryAggregationMode="none"
         valueOverride=" "
       >
@@ -514,7 +533,11 @@
         <Event
           event="clickCell"
           method="run"
-          params={{ map: { src: "table1.selectRow(currentRow.index)" } }}
+          params={{
+            map: {
+              src: 'table1.selectRow(currentRow.index);\n\nutils.showNotification({\n  title: "Password reset email sent",\n  description: `Reset email sent to ${table1.selectedRow.email}`\n});',
+            },
+          }}
           pluginId=""
           type="script"
           waitMs="0"
