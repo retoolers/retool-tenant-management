@@ -7,6 +7,8 @@
   isHiddenOnMobile={true}
   overlayInteraction={true}
   padding="8px 12px"
+  showFooter={true}
+  showFooterBorder={false}
   showHeader={true}
   showHeaderBorder={false}
   showOverlay={true}
@@ -52,7 +54,6 @@
       resetAfterSubmit={true}
       showBody={true}
       showBorder={false}
-      showFooter={true}
       showFooterBorder={false}
     >
       <Header>
@@ -136,6 +137,47 @@
             size={100}
             summaryAggregationMode="none"
           />
+          <Column
+            id="2f5d6"
+            alignment="left"
+            format="button"
+            formatOptions={{
+              variant: "solid",
+              iconBefore: "line/interface-delete-1",
+              buttonColor: "rgba(255, 0, 0, 0)",
+            }}
+            groupAggregationMode="none"
+            headerTextColor="rgba(255, 0, 0, 0)"
+            placeholder="Enter value"
+            position="center"
+            size={100}
+            summaryAggregationMode="none"
+            valueOverride=" "
+          >
+            <Event
+              event="clickCell"
+              method="run"
+              params={{ map: { src: "table1.clearSelection()" } }}
+              pluginId=""
+              type="script"
+              waitMs="0"
+              waitType="debounce"
+            />
+          </Column>
+          <Column
+            id="0221a"
+            alignment="left"
+            editable={false}
+            format="string"
+            groupAggregationMode="none"
+            hidden="true"
+            key="id"
+            label="ID"
+            placeholder="Enter value"
+            position="center"
+            size={100}
+            summaryAggregationMode="none"
+          />
           <ToolbarButton
             id="1a"
             icon="bold/interface-text-formatting-filter-2"
@@ -179,25 +221,6 @@
           verticalAlign="center"
         />
       </Body>
-      <Footer>
-        <Button id="button11" styleVariant="outline" text="Cancel">
-          <Event
-            event="click"
-            method="setHidden"
-            params={{}}
-            pluginId="modal_add_user_to_team"
-            type="widget"
-            waitMs="0"
-            waitType="debounce"
-          />
-        </Button>
-        <Button
-          id="formButton2"
-          submit={true}
-          submitTargetId="form2"
-          text="Add to Team"
-        />
-      </Footer>
       <Event
         event="submit"
         method="trigger"
@@ -209,4 +232,33 @@
       />
     </Form>
   </Body>
+  <Footer>
+    <Button id="button11" styleVariant="outline" text="Cancel">
+      <Event
+        event="click"
+        method="setHidden"
+        params={{}}
+        pluginId="modal_add_user_to_team"
+        type="widget"
+        waitMs="0"
+        waitType="debounce"
+      />
+    </Button>
+    <Button
+      id="formButton2"
+      disabled="{{ table2.selectedRows.length === 0 }}"
+      submitTargetId=""
+      text="Add to Team"
+    >
+      <Event
+        event="click"
+        method="trigger"
+        params={{}}
+        pluginId="api_add_member_to_team"
+        type="datasource"
+        waitMs="0"
+        waitType="debounce"
+      />
+    </Button>
+  </Footer>
 </ModalFrame>

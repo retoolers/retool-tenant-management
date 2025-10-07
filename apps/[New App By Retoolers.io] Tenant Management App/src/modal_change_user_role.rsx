@@ -7,6 +7,8 @@
   isHiddenOnMobile={true}
   overlayInteraction={true}
   padding="8px 12px"
+  showFooter={true}
+  showFooterBorder={false}
   showHeader={true}
   showHeaderBorder={false}
   showOverlay={true}
@@ -52,7 +54,6 @@
       resetAfterSubmit={true}
       showBody={true}
       showBorder={false}
-      showFooter={true}
       showFooterBorder={false}
     >
       <Header>
@@ -87,15 +88,15 @@
           <Option id="00032" label="Admin" value="admin" />
         </Select>
       </Body>
-      <Footer>
-        <Button id="button7" styleVariant="outline" text="Cancel" />
-        <Button
-          id="formButton3"
-          submit={true}
-          submitTargetId="form3"
-          text="Change Role"
-        />
-      </Footer>
     </Form>
   </Body>
+  <Footer>
+    <Button id="button7" styleVariant="outline" text="Cancel" />
+    <Button
+      id="formButton3"
+      submit={true}
+      submitTargetId="form3"
+      text="Change Role"
+    />
+  </Footer>
 </ModalFrame>

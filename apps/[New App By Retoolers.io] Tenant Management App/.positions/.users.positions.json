@@ -33,29 +33,31 @@
     "width": 2
   },
   "button10": {
-    "container": "form4",
     "rowGroup": "footer",
+    "subcontainer": "modalFrame2",
+    "row": 0,
     "col": 6,
     "height": 1,
     "width": 2
   },
   "button11": {
-    "container": "form2",
     "rowGroup": "footer",
+    "subcontainer": "modal_add_user_to_team",
+    "row": 0,
     "col": 7,
     "height": 1,
     "width": 2
   },
   "button6": {
-    "container": "form1",
     "rowGroup": "footer",
+    "subcontainer": "modal_add_user",
     "col": 7,
     "height": 1,
     "width": 2
   },
   "button7": {
-    "container": "form3",
     "rowGroup": "footer",
+    "subcontainer": "modal_change_user_role",
     "col": 7,
     "height": 1,
     "width": 2
@@ -129,26 +131,28 @@
     }
   },
   "formButton1": {
-    "container": "form1",
     "rowGroup": "footer",
+    "subcontainer": "modal_add_user",
     "col": 9,
     "height": 1
   },
   "formButton2": {
-    "container": "form2",
     "rowGroup": "footer",
+    "subcontainer": "modal_add_user_to_team",
+    "row": 0,
     "col": 9,
     "height": 1
   },
   "formButton3": {
-    "container": "form3",
     "rowGroup": "footer",
+    "subcontainer": "modal_change_user_role",
     "col": 9,
     "height": 1
   },
   "formButton4": {
-    "container": "form4",
     "rowGroup": "footer",
+    "subcontainer": "modalFrame2",
+    "row": 0,
     "col": 8,
     "height": 1,
     "width": 4

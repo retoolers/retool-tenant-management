@@ -7,6 +7,8 @@
   isHiddenOnMobile={true}
   overlayInteraction={true}
   padding="8px 12px"
+  showFooter={true}
+  showFooterBorder={false}
   showHeader={true}
   showHeaderBorder={false}
   showOverlay={true}
@@ -48,7 +50,6 @@
       resetAfterSubmit={true}
       showBody={true}
       showBorder={false}
-      showFooter={true}
       showFooterBorder={false}
     >
       <Header>
@@ -61,6 +62,7 @@
           label="Full Name"
           labelPosition="top"
           placeholder="Enter value"
+          required={true}
         />
         <TextInput
           id="email_input"
@@ -68,6 +70,7 @@
           label="Email Address"
           labelPosition="top"
           placeholder="Enter value"
+          required={true}
         />
         <Select
           id="role_select"
@@ -78,6 +81,7 @@
           labelPosition="top"
           overlayMaxHeight={375}
           placeholder="Select an option"
+          required={true}
           showSelectionIndicator={true}
         >
           <Option id="00030" label="Viewer" value="viewer" />
@@ -102,15 +106,6 @@
         </Multiselect>
         <Switch id="switch1" formDataKey="status" label="Active" />
       </Body>
-      <Footer>
-        <Button id="button6" styleVariant="outline" text="Cancel" />
-        <Button
-          id="formButton1"
-          submit={true}
-          submitTargetId="form1"
-          text="Send Invitation"
-        />
-      </Footer>
       <Event
         event="submit"
         method="trigger"
@@ -122,4 +117,13 @@
       />
     </Form>
   </Body>
+  <Footer>
+    <Button id="button6" styleVariant="outline" text="Cancel" />
+    <Button
+      id="formButton1"
+      submit={true}
+      submitTargetId="form1"
+      text="Send Invitation"
+    />
+  </Footer>
 </ModalFrame>

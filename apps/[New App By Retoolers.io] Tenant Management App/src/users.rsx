@@ -175,6 +175,14 @@
     funcBody={include("../lib/mockdata.js", "string")}
     runBehavior="debounced"
   />
+  <JavascriptQuery
+    id="deselect_row"
+    isMultiplayerEdited={false}
+    notificationDuration={4.5}
+    query={include("../lib/deselect_row.js", "string")}
+    resourceName="JavascriptQuery"
+    showSuccessToaster={false}
+  />
   <Include src="./modal_add_user.rsx" />
   <Include src="./modal_add_user_to_team.rsx" />
   <Include src="./modal_archive_user.rsx" />
@@ -322,11 +330,10 @@
       id="table1"
       cellSelection="none"
       clearChangesetOnSave={true}
-      data="{{ _userdata.value }}"
+      data="{{ mockdata.value }}"
       defaultSelectedRow={{ mode: "index", indexType: "display", index: 0 }}
       emptyMessage="No rows found"
       enableSaveActions={true}
-      primaryKeyColumnId="5efb4"
       rowHeight="small"
       rowSelection="multiple"
       showBorder={true}
@@ -343,7 +350,7 @@
         label="User"
         placeholder="Enter value"
         position="center"
-        size={96.203125}
+        size={101}
         summaryAggregationMode="none"
       />
       <Column
@@ -355,7 +362,7 @@
         key="email"
         label="Email"
         position="center"
-        size={166.875}
+        size={154.5}
         summaryAggregationMode="none"
       >
         <Event
@@ -379,7 +386,7 @@
         label="Role"
         placeholder="Select option"
         position="center"
-        size={96.859375}
+        size={69.859375}
         summaryAggregationMode="none"
       />
       <Column
@@ -400,7 +407,7 @@
         label="Status"
         placeholder="Enter value"
         position="center"
-        size={78.875}
+        size={50.875}
         summaryAggregationMode="none"
       />
       <Column
@@ -413,31 +420,31 @@
         label="Teams"
         placeholder="Select options"
         position="center"
-        size={108.84375}
+        size={221.5}
         summaryAggregationMode="none"
       />
       <Column
-        id="ea262"
+        id="9649a"
         alignment="left"
         format="datetime"
         groupAggregationMode="none"
-        key="createdAt"
+        key="created_at"
         label="Created at"
         placeholder="Enter value"
         position="center"
-        size={162}
+        size={100}
         summaryAggregationMode="none"
       />
       <Column
-        id="664b8"
+        id="ceb87"
         alignment="left"
         format="datetime"
         groupAggregationMode="none"
-        key="lastActive"
+        key="last_active"
         label="Last active"
         placeholder="Enter value"
         position="center"
-        size={145}
+        size={100}
         summaryAggregationMode="none"
       />
       <Column
@@ -490,7 +497,7 @@
         placeholder="Enter value"
         position="center"
         referenceId="changeRole"
-        size={109.703125}
+        size={85.703125}
         summaryAggregationMode="none"
         valueOverride=" "
       >
@@ -526,7 +533,7 @@
         placeholder="Enter value"
         position="center"
         referenceId="resetPassword"
-        size={109.078125}
+        size={104.078125}
         summaryAggregationMode="none"
         valueOverride=" "
       >
@@ -582,19 +589,6 @@
           waitType="debounce"
         />
       </Column>
-      <Column
-        id="5efb4"
-        alignment="left"
-        format="string"
-        groupAggregationMode="none"
-        hidden="true"
-        key="id"
-        label="ID"
-        placeholder="Enter value"
-        position="center"
-        size={100}
-        summaryAggregationMode="none"
-      />
       <ToolbarButton
         id="1a"
         icon="bold/interface-text-formatting-filter-2"

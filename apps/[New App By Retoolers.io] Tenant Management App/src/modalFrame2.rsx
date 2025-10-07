@@ -7,6 +7,8 @@
   isHiddenOnMobile={true}
   overlayInteraction={true}
   padding="8px 12px"
+  showFooter={true}
+  showFooterBorder={false}
   showHeader={true}
   showHeaderBorder={false}
   showOverlay={true}
@@ -52,12 +54,11 @@
       id="form4"
       footerPadding="4px 12px"
       headerPadding="4px 12px"
-      padding="12px"
+      padding="5px"
       requireValidation={true}
       resetAfterSubmit={true}
       showBody={true}
       showBorder={false}
-      showFooter={true}
       showFooterBorder={false}
     >
       <Header>
@@ -80,16 +81,48 @@
         />
         <Select
           id="select4"
-          data="{{ api_get_roles.data.value }}"
+          captionByIndex=""
+          colorByIndex=""
+          data=""
+          disabledByIndex=""
           emptyMessage="No options"
+          fallbackTextByIndex=""
+          hiddenByIndex=""
+          iconByIndex=""
+          imageByIndex=""
+          itemMode="static"
           label="Role"
           labelPosition="top"
-          labels="{{ item.name }}"
+          labels=""
           overlayMaxHeight={375}
           placeholder="Select an option"
           showSelectionIndicator={true}
-          values="{{ item.id }}"
-        />
+          tooltipByIndex=""
+          value="{{ table1.selectedRow.role }}"
+          values=""
+        >
+          <Option
+            id="492ef"
+            disabled={false}
+            hidden={false}
+            label="Viewer"
+            value="Viewer"
+          />
+          <Option
+            id="1ebd7"
+            disabled={false}
+            hidden={false}
+            label="Editor"
+            value="Editor"
+          />
+          <Option
+            id="24daf"
+            disabled={false}
+            hidden={false}
+            label="Admin"
+            value="Admin"
+          />
+        </Select>
         <Select
           id="select5"
           data="{{ api_get_group_list.data.value }}"
@@ -103,15 +136,6 @@
           values="{{ item.id }}"
         />
       </Body>
-      <Footer>
-        <Button id="button10" styleVariant="outline" text="Cancel" />
-        <Button
-          id="formButton4"
-          submit={true}
-          submitTargetId="form4"
-          text="Save Changes"
-        />
-      </Footer>
       <Event
         event="submit"
         method="trigger"
@@ -123,4 +147,13 @@
       />
     </Form>
   </Body>
+  <Footer>
+    <Button id="button10" styleVariant="outline" text="Cancel" />
+    <Button
+      id="formButton4"
+      submit={true}
+      submitTargetId="form4"
+      text="Save Changes"
+    />
+  </Footer>
 </ModalFrame>
