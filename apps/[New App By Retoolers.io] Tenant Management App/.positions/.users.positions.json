@@ -288,6 +288,12 @@
     "height": 0.2,
     "width": 12
   },
+  "select6": {
+    "container": "form3",
+    "row": 0.2,
+    "height": 0.2,
+    "width": 12
+  },
   "switch1": {
     "container": "form1",
     "row": 0.8,

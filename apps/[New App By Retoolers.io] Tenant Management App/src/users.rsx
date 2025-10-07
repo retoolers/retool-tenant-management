@@ -8,38 +8,38 @@
   urlSlug={null}
   uuid="9ef32fad-5c57-4acd-bc81-7f61268c9cf8"
 >
-  <Folder id="GET">
-    <RESTQuery
-      id="api_get_user"
-      notificationDuration={4.5}
-      query="userprofile/list"
-      resourceDisplayName="AirFusion Tenant Configuration API"
-      resourceName="1fb0010c-aa81-44d6-8cd9-ba529aa9a123"
-      runWhenModelUpdates={false}
-      runWhenPageLoads={true}
-      showSuccessToaster={false}
-    />
-    <RESTQuery
-      id="api_get_group_list"
-      query="groups/list"
-      resourceDisplayName="AirFusion Tenant Configuration API"
-      resourceName="1fb0010c-aa81-44d6-8cd9-ba529aa9a123"
-      runWhenModelUpdates={false}
-      runWhenPageLoads={true}
-    />
-    <RESTQuery
-      id="api_get_roles"
-      isMultiplayerEdited={false}
-      notificationDuration={4.5}
-      query="roles/list"
-      resourceDisplayName="AirFusion Tenant Configuration API"
-      resourceName="1fb0010c-aa81-44d6-8cd9-ba529aa9a123"
-      runWhenModelUpdates={false}
-      runWhenPageLoads={true}
-      showSuccessToaster={false}
-    />
-  </Folder>
   <Folder id="POST">
+    <RESTQuery
+      id="api_change_role"
+      body={
+        '[{"key":"UserIds","value":"{{ table1.selectedRows.map(row => row.id) }}"},{"key":"Role","value":"{{ select6.value }}"}]'
+      }
+      bodyType="json"
+      query="roles/assign-bulk"
+      resourceDisplayName="AirFusion Tenant Configuration API"
+      resourceName="1fb0010c-aa81-44d6-8cd9-ba529aa9a123"
+      runWhenModelUpdates={false}
+      type="POST"
+    >
+      <Event
+        event="success"
+        method="setHidden"
+        params={{}}
+        pluginId="modal_change_user_role"
+        type="widget"
+        waitMs="0"
+        waitType="debounce"
+      />
+      <Event
+        event="success"
+        method="trigger"
+        params={{}}
+        pluginId="api_get_user"
+        type="datasource"
+        waitMs="0"
+        waitType="debounce"
+      />
+    </RESTQuery>
     <RESTQuery
       id="api_post_invite_user"
       body={
@@ -117,6 +117,37 @@
       />
     </RESTQuery>
   </Folder>
+  <Folder id="GET">
+    <RESTQuery
+      id="api_get_user"
+      notificationDuration={4.5}
+      query="userprofile/list"
+      resourceDisplayName="AirFusion Tenant Configuration API"
+      resourceName="1fb0010c-aa81-44d6-8cd9-ba529aa9a123"
+      runWhenModelUpdates={false}
+      runWhenPageLoads={true}
+      showSuccessToaster={false}
+    />
+    <RESTQuery
+      id="api_get_group_list"
+      query="groups/list"
+      resourceDisplayName="AirFusion Tenant Configuration API"
+      resourceName="1fb0010c-aa81-44d6-8cd9-ba529aa9a123"
+      runWhenModelUpdates={false}
+      runWhenPageLoads={true}
+    />
+    <RESTQuery
+      id="api_get_roles"
+      isMultiplayerEdited={false}
+      notificationDuration={4.5}
+      query="roles/list"
+      resourceDisplayName="AirFusion Tenant Configuration API"
+      resourceName="1fb0010c-aa81-44d6-8cd9-ba529aa9a123"
+      runWhenModelUpdates={false}
+      runWhenPageLoads={true}
+      showSuccessToaster={false}
+    />
+  </Folder>
   <Folder id="PATCH">
     <RESTQuery
       id="api_update_user_profile"
@@ -137,6 +168,11 @@
   <Function
     id="transformer2"
     funcBody={include("../lib/transformer2.js", "string")}
+    runBehavior="debounced"
+  />
+  <Function
+    id="mockdata"
+    funcBody={include("../lib/mockdata.js", "string")}
     runBehavior="debounced"
   />
   <Include src="./modal_add_user.rsx" />
@@ -271,7 +307,7 @@
       defaultSelectedRow={{ mode: "index", indexType: "display", index: 0 }}
       emptyMessage="No rows found"
       enableSaveActions={true}
-      primaryKeyColumnId="78fc2"
+      primaryKeyColumnId="5efb4"
       rowHeight="small"
       rowSelection="multiple"
       showBorder={true}
@@ -288,7 +324,7 @@
         label="User"
         placeholder="Enter value"
         position="center"
-        size={110.203125}
+        size={81.203125}
         summaryAggregationMode="none"
       />
       <Column
@@ -300,7 +336,7 @@
         key="email"
         label="Email"
         position="center"
-        size={203.875}
+        size={166.875}
         summaryAggregationMode="none"
       >
         <Event
@@ -324,7 +360,7 @@
         label="Role"
         placeholder="Select option"
         position="center"
-        size={126}
+        size={96.859375}
         summaryAggregationMode="none"
       />
       <Column
@@ -345,19 +381,7 @@
         label="Status"
         placeholder="Enter value"
         position="center"
-        size={91}
-        summaryAggregationMode="none"
-      />
-      <Column
-        id="007de"
-        alignment="left"
-        format="date"
-        groupAggregationMode="none"
-        key="createdAt"
-        label="Created at"
-        placeholder="Enter value"
-        position="center"
-        size={100}
+        size={71.875}
         summaryAggregationMode="none"
       />
       <Column
@@ -370,11 +394,23 @@
         label="Teams"
         placeholder="Select options"
         position="center"
-        size={153}
+        size={191.84375}
         summaryAggregationMode="none"
       />
       <Column
-        id="752f7"
+        id="ea262"
+        alignment="left"
+        format="string"
+        groupAggregationMode="none"
+        key="createdAt"
+        label="Created at"
+        placeholder="Enter value"
+        position="center"
+        size={100}
+        summaryAggregationMode="none"
+      />
+      <Column
+        id="664b8"
         alignment="left"
         format="string"
         groupAggregationMode="none"
@@ -382,7 +418,7 @@
         label="Last active"
         placeholder="Enter value"
         position="center"
-        size={191}
+        size={100}
         summaryAggregationMode="none"
       />
       <Column
@@ -399,7 +435,7 @@
         placeholder="Enter value"
         position="center"
         referenceId="edit"
-        size={100}
+        size={44}
         summaryAggregationMode="none"
         valueOverride=" "
       >
@@ -426,7 +462,7 @@
         placeholder="Enter value"
         position="center"
         referenceId="changeRole"
-        size={235}
+        size={144.703125}
         summaryAggregationMode="none"
         valueOverride=" "
       >
@@ -453,7 +489,7 @@
         placeholder="Enter value"
         position="center"
         referenceId="resetPassword"
-        size={147}
+        size={104.078125}
         summaryAggregationMode="none"
         valueOverride=" "
       />
@@ -471,13 +507,23 @@
         placeholder="Enter value"
         position="center"
         referenceId="archive"
-        size={100}
+        size={57.359375}
         summaryAggregationMode="none"
         textColor="rgba(255, 0, 0, 1)"
         valueOverride=" "
-      />
+      >
+        <Event
+          event="clickCell"
+          method="show"
+          params={{}}
+          pluginId="modal_archive_user"
+          type="widget"
+          waitMs="0"
+          waitType="debounce"
+        />
+      </Column>
       <Column
-        id="78fc2"
+        id="5efb4"
         alignment="left"
         format="string"
         groupAggregationMode="none"

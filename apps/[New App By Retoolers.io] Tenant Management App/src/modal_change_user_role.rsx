@@ -63,6 +63,7 @@
           id="select3"
           data="{{ api_get_roles.data.value }}"
           emptyMessage="No options"
+          hidden="true"
           label="New Role"
           labelPosition="top"
           labels="{{ item.name }}"
@@ -71,6 +72,20 @@
           showSelectionIndicator={true}
           values="{{ item.id }}"
         />
+        <Select
+          id="select6"
+          emptyMessage="No options"
+          itemMode="static"
+          label="New Role"
+          labelPosition="top"
+          overlayMaxHeight={375}
+          placeholder="Select an option"
+          showSelectionIndicator={true}
+        >
+          <Option id="00030" label="Editor" value="editor" />
+          <Option id="00031" label="Viewer" value="viewer" />
+          <Option id="00032" label="Admin" value="admin" />
+        </Select>
       </Body>
       <Footer>
         <Button id="button7" styleVariant="outline" text="Cancel" />
