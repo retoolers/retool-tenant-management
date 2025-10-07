@@ -1,0 +1,19 @@
+{
+  "html1": {
+    "subcontainer": "splitPaneFrame1",
+    "height": 0.2,
+    "width": 12
+  },
+  "icon1": {
+    "subcontainer": "splitPaneFrame1",
+    "row": 0.2,
+    "height": 0.8,
+    "width": 12
+  },
+  "navigation1": {
+    "subcontainer": "splitPaneFrame1",
+    "row": 1,
+    "height": 0.8,
+    "width": 12
+  }
+}
