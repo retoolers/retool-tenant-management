@@ -132,10 +132,12 @@
   <Function
     id="_userdata"
     funcBody={include("../lib/_userdata.js", "string")}
+    runBehavior="debounced"
   />
   <Function
     id="transformer2"
     funcBody={include("../lib/transformer2.js", "string")}
+    runBehavior="debounced"
   />
   <Include src="./modal_add_user.rsx" />
   <Include src="./modal_add_user_to_team.rsx" />
