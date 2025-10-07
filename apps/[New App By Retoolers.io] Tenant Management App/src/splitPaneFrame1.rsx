@@ -27,11 +27,7 @@
       waitType="debounce"
     />
   </HTML>
-  <Icon
-    id="icon1"
-    horizontalAlign="center"
-    icon="line/interface-setting-menu-1"
-  >
+  <Icon id="icon1" icon="line/interface-setting-menu-1">
     <Event
       enabled="{{set_width.value !== expand_width.value}}"
       event="click"

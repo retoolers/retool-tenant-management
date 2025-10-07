@@ -334,7 +334,7 @@
       defaultSelectedRow={{ mode: "index", indexType: "display", index: 0 }}
       emptyMessage="No rows found"
       enableSaveActions={true}
-      rowHeight="small"
+      rowHeight="medium"
       rowSelection="multiple"
       showBorder={true}
       showFooter={true}
@@ -420,31 +420,7 @@
         label="Teams"
         placeholder="Select options"
         position="center"
-        size={221.5}
-        summaryAggregationMode="none"
-      />
-      <Column
-        id="9649a"
-        alignment="left"
-        format="datetime"
-        groupAggregationMode="none"
-        key="created_at"
-        label="Created at"
-        placeholder="Enter value"
-        position="center"
-        size={100}
-        summaryAggregationMode="none"
-      />
-      <Column
-        id="ceb87"
-        alignment="left"
-        format="datetime"
-        groupAggregationMode="none"
-        key="last_active"
-        label="Last active"
-        placeholder="Enter value"
-        position="center"
-        size={100}
+        size={206.5}
         summaryAggregationMode="none"
       />
       <Column
@@ -497,7 +473,7 @@
         placeholder="Enter value"
         position="center"
         referenceId="changeRole"
-        size={85.703125}
+        size={110.703125}
         summaryAggregationMode="none"
         valueOverride=" "
       >
@@ -589,6 +565,30 @@
           waitType="debounce"
         />
       </Column>
+      <Column
+        id="d4924"
+        alignment="left"
+        format="datetime"
+        groupAggregationMode="none"
+        key="created_at"
+        label="Created at"
+        placeholder="Enter value"
+        position="center"
+        size={100}
+        summaryAggregationMode="none"
+      />
+      <Column
+        id="f94d9"
+        alignment="left"
+        format="datetime"
+        groupAggregationMode="none"
+        key="last_active"
+        label="Last active"
+        placeholder="Enter value"
+        position="center"
+        size={100}
+        summaryAggregationMode="none"
+      />
       <ToolbarButton
         id="1a"
         icon="bold/interface-text-formatting-filter-2"

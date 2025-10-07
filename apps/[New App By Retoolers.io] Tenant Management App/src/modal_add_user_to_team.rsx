@@ -157,7 +157,11 @@
             <Event
               event="clickCell"
               method="run"
-              params={{ map: { src: "table1.clearSelection()" } }}
+              params={{
+                map: {
+                  src: "//  table1.clearSelection\nconst deselectId = currentRow.id;\n\n\nconst currentSelection = table1.selectedRowKeys;\n\n\nconst updatedSelection = currentSelection.filter(id => id !== deselectId);\n\ntable1.setSelectedRowKeys(updatedSelection);",
+                },
+              }}
               pluginId=""
               type="script"
               waitMs="0"
